@@ -31,17 +31,17 @@
 
         <section class="make-note">
             <h2>Make a Note!</h2>
-            <textarea aria-label="Notes Title" name="" class="textarea" cols="30" rows="2" placeholder="Note Name"></textarea>
-            <textarea aria-label="Notes Body" name="" id="" class="textarea" cols="30" rows="3" placeholder="don't forget to write description..."></textarea>
+            <textarea id="title" aria-label="Notes Title" class="textarea" cols="30" rows="2" placeholder="Note Name"></textarea>
+            <textarea aria-label="Notes Body" id="body" class="textarea" cols="30" rows="3" placeholder="don't forget to write description..."></textarea>
             <div class="note-btns">
                 <button id="addBtn" class="btn btn-primary">Add Note</button>
-                <button id="ClearBtn" class="btn btn-secondary">Clean Slate</button>
+                <button id="clearBtn" class="btn btn-secondary">Clean Slate</button>
             </div>
         </section>
 
         <!-- Notes Posted -->
 
-        <section class="all-notes-sec">
+        <section id="all-notes" class="all-notes-sec">
             <p class="start-text">
                 Nothing to show right now...
             </p>
