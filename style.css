@@ -1,1 +1,145 @@
 /* font-family: 'Poppins', sans-serif; */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: #003049;
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* =============
+    Navigation 
+   =============*/
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+input[type="text"] {
+    padding: 1em;
+    border-radius: 5px;
+    border: none;
+    outline: #8338EC;
+}
+
+
+/* ===================
+    Make Note Section 
+   ===================*/
+
+.make-note {
+    background-color: #FBEFF1;
+    margin: 1em;
+    display: grid;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid #F3CED4;
+}
+
+.textarea {
+    border-radius: 5px;
+    resize: none;
+    padding: 0.5em;
+    outline-color: #F3CED4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+    padding: 0.5em 1.5em;
+    margin-right: 1em;
+    font-weight: bold;
+    border-width: 1px;
+    color: #fff;
+    transform: translate(0,0);
+    transition: transform 250ms;
+    border-radius: 2px;
+}
+
+.btn-primary {
+    background-color: #E07400;
+    border-color: #A35A00;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    transform: translate(-2px,-2px);
+    box-shadow: 2px 2px 0 #A35A00;
+}
+
+.btn-secondary {
+    background-color: #D80032;
+    border-color: #660018;
+}
+
+.btn-secondary:focus,
+.btn-secondary:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 2px 2px 0 #660018;
+}
+
+
+/* ====================
+    All Notes Section
+   ==================== */
+
+.all-notes-sec {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    gap: 1em;
+    margin: 1em auto;
+    align-items: flex-start;
+}
+
+.notes {
+    width: 250px;
+    border: 1px solid #F3CED4;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.notes > p {
+    word-break: break-word;
+}
+
+.start-text {
+    color: grey;
+    height: 20vh;
+} 
+
+
+/* ==================
+    Footer
+   ================== */
+
+.footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 0.5em;
+    color: #fff;
+}
+
+.footer a:hover,
+.footer a:focus {
+    background-color: #E07400;
+    padding: 0.5em;
+    border-radius: 5px;
+}
