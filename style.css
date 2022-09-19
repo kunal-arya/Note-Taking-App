@@ -121,11 +121,15 @@ input[type="text"] {
     word-break: break-word;
 }
 
-.start-text {
+.start-text,
+.search-text {
     color: grey;
     height: 20vh;
 } 
 
+.search-hide {
+    display: none;
+}
 
 /* ==================
     Footer

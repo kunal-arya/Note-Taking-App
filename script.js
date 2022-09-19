@@ -3,6 +3,7 @@ const bodyEl = document.getElementById("body");
 const addNoteBtn = document.getElementById("addBtn");
 const clearAllNotesBtn = document.getElementById("clearBtn");
 const allNotes = document.getElementById("all-notes");
+const searchEl = document.getElementById("search");
 
 let titleObj,bodyObj;
 
@@ -45,8 +46,6 @@ function addNoteClickHandler() {
     }
     titleObj.push(titleEl.value);
 
-    console.log(titleEl.value, bodyEl.value);
-
     // Setting the local Storage
     settingLocalStorage();
 
@@ -59,7 +58,7 @@ function addNoteClickHandler() {
 }
 
 
-
+// Show Notes
 function showNotes() {
     // Getting the objects from local Storage
     getLocalStorageData();
@@ -68,7 +67,7 @@ function showNotes() {
     let html = "";
     bodyObj.forEach((body,index) => {
         html += `
-        <div class="notes">
+        <div class="notes notecard">
                 <h2 class="notes-title">${titleObj[index]}</h2>
                 <p class="notes-body">${body}</p>
                 <button class="btn btn-secondary" id="${index}" onclick="deleteBtn(this.id)">Delete Note</button>
@@ -81,10 +80,13 @@ function showNotes() {
             Nothing to show right now...
         </p>`
     } else {
-        allNotes.innerHTML = html;
+        allNotes.innerHTML = `            <p class="search-text search-hide">
+        No Result to Show....
+    </p>` + html;
     }
 }
 
+// Delete button click Handler
 function deleteBtn(index) {
     // Getting the objects from local Storage
     getLocalStorageData();
@@ -101,10 +103,47 @@ function deleteBtn(index) {
     showNotes();
 }
 
+// clearBtn click Handler
 function clearAllNotesClickHandler() {
+    // clear local storage
     localStorage.clear();
+
+    // show notes 
     showNotes();
+}
+
+// SearchEl click Handler
+function searchClickHandler() {
+    const search = searchEl.value.toLowerCase();
+    const noteCard = document.querySelectorAll(".notecard");
+    let totalNotes = noteCard.length;
+    for(let note of noteCard) {
+        // body of all the note Cards
+        const body = note.getElementsByTagName('p')[0].textContent.toLowerCase();
+
+        // title of all the note Cards
+        const title = note.getElementsByTagName("h2")[0].textContent.toLowerCase();
+        
+        // If either body or title includes search Input, show that note only
+        if(body.includes(search) || title.includes(search)) {
+            note.style.display = "block";
+            totalNotes++;
+        } else {
+            note.style.display = "none";
+            totalNotes--;
+        }
+    }
+
+
+// If search result has no Notes to show
+    if(totalNotes == 0) {
+        document.querySelector(".search-text").classList.remove("search-hide");
+    } else {
+        document.querySelector(".search-text").classList.add("search-hide");
+    }
 }
 
 addNoteBtn.addEventListener("click", addNoteClickHandler);
 clearAllNotesBtn.addEventListener("click", clearAllNotesClickHandler);
+searchEl.addEventListener("input",searchClickHandler);
+
